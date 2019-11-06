@@ -30,7 +30,7 @@ class MySQL {
               let result = {
                 player: rows[0].player,
                 max_assists: rows[0].A,
-                avg_assists: rows2[0]
+                avg_assists: rows2[0].AVG(A)
             }  
 
               console.log(rows2);
