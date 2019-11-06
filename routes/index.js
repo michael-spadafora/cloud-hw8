@@ -24,7 +24,9 @@ router.get('/hw8', async function(req, res) {
 
 
   let cacheResult = myCache.get(query)
-  console.log(cacheResult.Player)
+
+  if (cacheResult)
+    console.log(cacheResult.Player)
 
 
   if (!cacheResult) {
