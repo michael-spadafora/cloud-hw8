@@ -15,12 +15,13 @@ class Memcached{
     cacheQueryResult = async(query, result) => {
         console.log("QUERY: " + query)
         console.log("RESULT: " + result)
-        await this.memcached.set(query, result, 1000, function (err) { console.log(err)/* stuff */ });
+        await this.memcached.set(query, result, 100, function (err) { console.log("error in getting")/* stuff */ });
     }
 
     getQueryResult = async(query)=>  {
         let result = await this.memcached.get(query)
 
+        console.log("MEMCACHEQUERY: " + result)
         console.log("MEMCACHE: " + result)
         return result
     }   
