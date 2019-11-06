@@ -10,17 +10,12 @@ class MySQL {
             database : 'hw8'
           });
         this.tablename = "test"
+        await this.connection.connect()
     }
 
     async getInformation(club, pos) {
         let query1 = "SELECT Player, A from test WHERE Club='" + club + "' AND POS='" + pos + "' ORDER BY A DESC, GS DESC, PLAYER DESC"
         let query2 = "SELECT AVG(A) from test WHERE Club='" + club + "' AND POS='" + pos +"'"
-
-
-  
-
-
-        await this.connection.connect()
 
         let query = util.promisify(this.connection.query).bind(this.connection);
         
