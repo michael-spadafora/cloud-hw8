@@ -37,14 +37,14 @@ class MySQL {
 
 
 
-        console.log(player)
+        // console.log(player)
 
-        let result = {
-            player: player.player,
-            max_assists: player.A,
-            avg_assists: avg_assists
-        }
-        return result
+        // let result = {
+        //     player: player.player,
+        //     max_assists: player.A,
+        //     avg_assists: avg_assists
+        // }
+        // return result
         
 
 
