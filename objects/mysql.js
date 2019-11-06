@@ -24,7 +24,7 @@ class MySQL {
 
         let query = util.promisify(this.connection.query).bind(this.connection);
         
-        await (async () => {
+        let item = await (async () => {
             try {
               const rows = await query(query1);
               console.log(rows);
@@ -33,6 +33,8 @@ class MySQL {
               this.connection.end();
             }
           })()
+
+        return item
 
         // let response = await this.connection.query(query1, function(err, rows, fields) {
         //     if (err) throw err;
