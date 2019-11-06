@@ -10,7 +10,7 @@ class MySQL {
             database : 'hw8'
           });
         this.tablename = "test"
-        await this.connection.connect()
+        this.connection.connect()
     }
 
     async getInformation(club, pos) {
