@@ -19,9 +19,16 @@ class MySQL {
   
 
 
-        await this.connection.connect(function (err) {
-        })
-        let player= await this.connection.query(query1)
+        await this.connection.connect()
+        await connection.query(query1, function(err, rows, fields) {
+            if (err) throw err;
+         
+            for (var i in rows) {
+                console.log('Post Titles: ', rows[i]);
+            }
+        });
+        let player= await this.connection.query(query1 )
+
         let avg_assists = await this. connection.query(query2)
 
         console.log(player)
