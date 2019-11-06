@@ -20,5 +20,5 @@ class Memcached{
     }   
 }
 
-export default Memcached()
+module.exports = Memcached
 
