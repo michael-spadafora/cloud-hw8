@@ -37,13 +37,7 @@ class MySQL {
               return rows
             
         })()
-        let result = {
-                player: items[0].player,
-                max_assists: items[0].A,
-                avg_assists: items2[0]
-            }  
 
-        return items
 
         // let response = await this.connection.query(query1, function(err, rows, fields) {
         //     if (err) throw err;
