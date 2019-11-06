@@ -31,31 +31,6 @@ class MySQL {
         })()
 
         return items
-
-
-        // let response = await this.connection.query(query1, function(err, rows, fields) {
-        //     if (err) throw err;
-         
-        //     for (var i in rows) {
-        //         console.log('Post Titles: ', rows[i]);
-        //     }
-
-        // });
-        // let player= await this.connection.query(query1 )
-
-        // let avg_assists = await this. connection.query(query2)
-
-        // console.log(player)
-
-        // let result = {
-        //     player: player.player,
-        //     max_assists: player.A,
-        //     avg_assists: avg_assists
-        // }
-        // return result
-        
-
-
     }
 }
 
