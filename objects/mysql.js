@@ -37,7 +37,7 @@ class MySQL {
               console.log(rows2);
               return result
             } finally {
-                conn.end();
+                this.connection.end();
             }
             
         })()
