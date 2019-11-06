@@ -20,31 +20,26 @@ class MySQL {
 
 
         await this.connection.connect()
-
-        await this.connection.query(query1, function(err, players, fields) {
+        
+        await this.connection.query(query1, function(err, rows, fields) {
             if (err) throw err;
-
-            let result = {
-                player: players[0].player,
-                max_assists: players[0].A,
+         
+            for (var i in rows) {
+                console.log('Post Titles: ', rows[i]);
             }
+        });
+        let player= await this.connection.query(query1 )
 
-            // this.connection.query(query2, function(err, item, fields) {
-            //     console.log(item)
-            // })
-        })
+        let avg_assists = await this. connection.query(query2)
 
+        console.log(player)
 
-
-
-        // console.log(player)
-
-        // let result = {
-        //     player: player.player,
-        //     max_assists: player.A,
-        //     avg_assists: avg_assists
-        // }
-        // return result
+        let result = {
+            player: player.player,
+            max_assists: player.A,
+            avg_assists: avg_assists
+        }
+        return result
         
 
 
