@@ -18,17 +18,13 @@ router.get('/hw8', async function(req, res) {
 
   let query = "pos=" + pos + 'club=' + club
 
-  console.log("NEW QUERY: " + query)
 
   let memcachedResult = await memcached.getQueryResult(query)
-  console.log(memcachedResult)
 
   if (!memcachedResult) {
     let mysqlresult = await mysql.getInformation(club, pos)
     mysqlresult.club = club
     mysqlresult.pos = pos
-    console.log(mysqlresult.player)
-    console.log(mysqlresult.max_assists)
 
     await memcached.cacheQueryResult(query, mysqlresult)
     res.send(mysqlresult)

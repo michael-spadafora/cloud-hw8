@@ -1,13 +1,18 @@
 var Memcachedd = require('memcached');
+const util = require('util');
+
+var memjs = require('memjs')
 
 class Memcached{
     constructor(){
-        this.memcached = new Memcachedd();
-        this.memcached.connect( 'localhost:11211', function( err, conn ){
-            if( err ) {
-               console.log( conn.server );
-            }
-        });
+        // this.memcached = new Memcachedd();
+        // this.memcached.connect( 'localhost:11211', function( err, conn ){
+        //     if( err ) {
+        //        console.log( conn.server );
+        //     }
+        // });
+
+        this.memcahced = memjs.Client.create('localhost:11211')
     }
 
     async cacheQueryResult(query, result) {
@@ -15,8 +20,10 @@ class Memcached{
     }
 
     async getQueryResult(query) {
-        let result = await this.memcached.get(query)
-        console.log(result)
+        let result = this.memcached.get(query, function(err, value) {
+            console.log(value.toString())
+        }) 
+        
         return result
     }   
 }
