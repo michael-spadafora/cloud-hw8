@@ -25,8 +25,8 @@ class MySQL {
             if (err) throw err;
 
             let result = {
-                player: player[0].player,
-                max_assists: player[0].A,
+                player: players[0].player,
+                max_assists: players[0].A,
             }
 
             this.connection.query(query2, function(err, item, fields) {
