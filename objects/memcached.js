@@ -1,8 +1,8 @@
-var Memcached = require('memcached');
+var Memcachedd = require('memcached');
 
 class Memcached{
     constructor(){
-        this.memcached = new Memcached();
+        this.memcached = new Memcachedd();
         memcached.connect( 'localhost:11211', function( err, conn ){
             if( err ) {
                console.log( conn.server );
