@@ -26,21 +26,17 @@ class MySQL {
         
         let items = await (async () => {
               const rows = await query(query1);
+              const rows2 = await query(query2);
+              let result = {
+                player: rows[0].player,
+                max_assists: rows[0].A,
+                avg_assists: rows2[0]
+            }  
+
               console.log(rows);
               return rows
             
         })()
-
-        let items2 = await (async () => {
-            try {
-              const rows = await query(query2);
-              console.log("items 2" + rows);
-              return rows
-            } finally {
-              this.connection.end();
-            }
-        })()
-
         let result = {
                 player: items[0].player,
                 max_assists: items[0].A,
