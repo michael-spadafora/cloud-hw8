@@ -29,12 +29,12 @@ class MySQL {
               const rows = await query(query1);
               const rows2 = await query(query2);
               let result = {
-                player: rows[0].player,
+                player: rows[0]['player'],
                 max_assists: rows[0].A,
                 avg_assists: rows2[0]['AVG(A)']
                 }  
 
-              console.log(rows2);
+              console.log(rows);
               return result
             } finally {
                 this.connection.end();
