@@ -13,7 +13,9 @@ class Memcached{
     }
 
     async cacheQueryResult(query, result) {
-        await memcached.set(query, result, 10, function (err) { /* stuff */ });
+        console.log(query)
+        console.log(result)
+        await memcached.set(query, result, 1000, function (err) { /* stuff */ });
     }
 
     async getQueryResult(query) {
