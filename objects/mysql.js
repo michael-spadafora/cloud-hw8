@@ -20,13 +20,21 @@ class MySQL {
 
 
         await this.connection.connect()
-        await this.connection.query(query1, function(err, rows, fields) {
+
+        await this.connection.query(query1, function(err, players, fields) {
             if (err) throw err;
-         
-            for (var i in rows) {
-                console.log('Post Titles: ', rows[i]);
+
+            let result = {
+                player: player[0].player,
+                max_assists: player[0].A,
             }
-        });
+
+            await this.connection.query(query2, function(err, item, fields) {
+                console.log(item)
+            })
+        })
+
+
         let player= await this.connection.query(query1 )
 
         let avg_assists = await this. connection.query(query2)
