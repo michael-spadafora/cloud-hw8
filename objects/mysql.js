@@ -35,9 +35,7 @@ class MySQL {
         })
 
 
-        let player= await this.connection.query(query1 )
 
-        let avg_assists = await this. connection.query(query2)
 
         console.log(player)
 
