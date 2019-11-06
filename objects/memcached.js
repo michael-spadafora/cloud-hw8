@@ -12,7 +12,7 @@ class Memcached{
         //     }
         // });
 
-        this.memcahced = memjs.Client.create('localhost:11211')
+        this.memcached = memjs.Client.create('localhost:11211')
     }
 
     async cacheQueryResult(query, result) {
@@ -23,7 +23,7 @@ class Memcached{
         let result = this.memcached.get(query, function(err, value) {
             console.log(value.toString())
         }) 
-        
+
         return result
     }   
 }
