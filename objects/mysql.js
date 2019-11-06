@@ -9,7 +9,7 @@ class MySQL {
             password : 'password',
             database : 'hw8'
           });
-        this.tablename = "test"
+        this.tablename = "assists"
         this.connection.connect()
     }
 
