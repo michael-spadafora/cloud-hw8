@@ -24,12 +24,13 @@ class MySQL {
 
         let query = util.promisify(this.connection.query).bind(this.connection);
         
-        (async () => {
+        await (async () => {
             try {
               const rows = await query(query1);
               console.log(rows);
+              return rows
             } finally {
-              conn.end();
+              this.connection.end();
             }
           })()
 
