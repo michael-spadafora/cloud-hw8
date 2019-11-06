@@ -20,7 +20,7 @@ class MySQL {
 
 
         await this.connection.connect()
-        await connection.query(query1, function(err, rows, fields) {
+        await this.connection.query(query1, function(err, rows, fields) {
             if (err) throw err;
          
             for (var i in rows) {
