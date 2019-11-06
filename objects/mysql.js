@@ -12,7 +12,7 @@ class MySQL {
     }
 
     async getInformation(club, pos) {
-        let query1 = "SELECT Player, A from test WHERE Club=" + club + " AND POS=" + pos + "ORDER BY A DESC, GS DESC, NAME DESC"
+        let query1 = "SELECT Player, A from test WHERE Club=" + club + " AND POS=" + pos + " ORDER BY A DESC, GS DESC, NAME DESC"
         let query2 = "SELECT AVG(A) from test WHERE Club=" + club + " AND POS=" + pos 
 
         let player= await this.connection.query(query1)
