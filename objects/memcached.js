@@ -12,15 +12,15 @@ class Memcached{
         });
     }
 
-    async cacheQueryResult(query, result,res) {
+    cacheQueryResult = async(query, result) => {
         console.log(query)
         console.log(result)
         await memcached.set(query, result, 1000, function (err) { console.log(err)/* stuff */ });
     }
 
-    async getQueryResult(query) {
-        let get = util.promisify(this.memcached.set.bind(this.memcached))
-        let result = await get(query)
+    getQueryResult = async(query)=>  {
+        let result = await this.memcached.get(query)
+
         console.log(result)
         return result
     }   
