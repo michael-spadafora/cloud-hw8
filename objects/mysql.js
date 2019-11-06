@@ -29,9 +29,9 @@ class MySQL {
                 max_assists: players[0].A,
             }
 
-            this.connection.query(query2, function(err, item, fields) {
-                console.log(item)
-            })
+            // this.connection.query(query2, function(err, item, fields) {
+            //     console.log(item)
+            // })
         })
 
 
