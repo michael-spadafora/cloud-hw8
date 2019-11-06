@@ -19,19 +19,22 @@ class MySQL {
   
 
 
-        await this.connection.connect()
-        let player= await this.connection.query(query1)
-        let avg_assists = await this. connection.query(query2)
+        await this.connection.connect(function (err) {
+            let player= await this.connection.query(query1)
+            let avg_assists = await this. connection.query(query2)
 
-        console.log(player)
+            console.log(player)
         
-        let result = {
-            player: player.player,
-            max_assists: player.A,
-            avg_assists: avg_assists
-        }
+            let result = {
+                player: player.player,
+                max_assists: player.A,
+                avg_assists: avg_assists
+            }
+            return result
 
-        return result
+        })
+        
+
     }
 }
 
