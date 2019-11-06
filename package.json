@@ -1,0 +1,9 @@
+{
+  "name": "NodeJs-Memcached",
+  "version": "0.0.1",
+  "description": "Simple Nodejs with mamcached tutorial",
+  "dependencies": {
+    "express": "^4.13.3",
+    "memcached": "^2.2.0"
+  }
+}
