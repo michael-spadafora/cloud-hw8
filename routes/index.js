@@ -29,8 +29,6 @@ router.get('/hw8', async function(req, res) {
     console.log(mysqlresult.player)
     console.log(mysqlresult.max_assists)
 
-
-
     res.send(mysqlresult)
     await memcached.cacheQueryResult(query, mysqlresult)
   }  
