@@ -29,7 +29,7 @@ class MySQL {
                 max_assists: player[0].A,
             }
 
-            await this.connection.query(query2, function(err, item, fields) {
+            this.connection.query(query2, function(err, item, fields) {
                 console.log(item)
             })
         })
