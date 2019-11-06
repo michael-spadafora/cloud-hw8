@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+const util = require('util');
 
 class MySQL {
     constructor(){
@@ -20,26 +21,38 @@ class MySQL {
 
 
         await this.connection.connect()
+
+        let query = util.promisify(this.connection.query).bind(this.connection);
         
-        await this.connection.query(query1, function(err, rows, fields) {
-            if (err) throw err;
-         
-            for (var i in rows) {
-                console.log('Post Titles: ', rows[i]);
+        (async () => {
+            try {
+              const rows = await query(query1);
+              console.log(rows);
+            } finally {
+              conn.end();
             }
-        });
-        let player= await this.connection.query(query1 )
+          })()
 
-        let avg_assists = await this. connection.query(query2)
+        // let response = await this.connection.query(query1, function(err, rows, fields) {
+        //     if (err) throw err;
+         
+        //     for (var i in rows) {
+        //         console.log('Post Titles: ', rows[i]);
+        //     }
 
-        console.log(player)
+        // });
+        // let player= await this.connection.query(query1 )
 
-        let result = {
-            player: player.player,
-            max_assists: player.A,
-            avg_assists: avg_assists
-        }
-        return result
+        // let avg_assists = await this. connection.query(query2)
+
+        // console.log(player)
+
+        // let result = {
+        //     player: player.player,
+        //     max_assists: player.A,
+        //     avg_assists: avg_assists
+        // }
+        // return result
         
 
 
