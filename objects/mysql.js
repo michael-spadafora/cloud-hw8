@@ -38,6 +38,8 @@ class MySQL {
             
         })()
 
+        return items
+
 
         // let response = await this.connection.query(query1, function(err, rows, fields) {
         //     if (err) throw err;
