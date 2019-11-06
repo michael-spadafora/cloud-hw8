@@ -18,6 +18,8 @@ router.get('/hw8', async function(req, res) {
 
   let query = "pos=" + pos + 'club=' + club
 
+  console.log("pre memcache query??")
+
 
   let memcachedResult = await memcached.getQueryResult(query)
 
