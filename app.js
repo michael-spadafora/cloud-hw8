@@ -3,8 +3,7 @@ var Memcached = require('memcached');
 var app = express();
 var port = Number(process.env.PORT || 5000);
  
-console.log("Listening on "+port+", Web URL: http://localhost:"+port);
-app.listen(port);
+
 
 var memcached = new Memcached();
 
