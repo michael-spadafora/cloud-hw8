@@ -19,7 +19,7 @@ class Memcached{
     }
 
     async getQueryResult(query) {
-        let get = util.promisify(this.memcached.set)
+        let get = util.promisify(this.memcached.set).bind(this.memcached)
         let result = await get(query)
         console.log(result)
         return result
