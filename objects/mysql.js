@@ -33,8 +33,8 @@ class MySQL {
                 avg_assists: rows2[0]
             }  
 
-              console.log(rows);
-              return rows
+              console.log(result);
+              return result
             
         })()
 
