@@ -15,8 +15,8 @@ class MySQL {
         let query1 = "SELECT Player, A from test WHERE Club=" + club + " AND POS=" + pos + "ORDER BY A DESC, GS DESC, NAME DESC"
         let query2 = "SELECT AVG(A) from test WHERE Club=" + club + " AND POS=" + pos 
 
-        let player= this.connection.query(query1)
-        let avg_assists = this.connection.query(query2)
+        let player= await this.connection.query(query1)
+        let avg_assists = await this.connection.query(query2)
 
         console.log(player)
         

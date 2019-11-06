@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/hw8', function(req, res) {
+router.get('/hw8', async function(req, res) {
   let pos = req.query.pos
   let club = req.query.club
 

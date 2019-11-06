@@ -10,12 +10,12 @@ class Memcached{
         });
     }
 
-    cacheQueryResult(query, result) {
-        this.memcached.set(query, result)   
+    async cacheQueryResult(query, result) {
+        await this.memcached.set(query, result)   
     }
 
-    getQueryResult(query) {
-        let result = this.memcached.get(query)
+    async getQueryResult(query) {
+        let result = await this.memcached.get(query)
         return result
     }   
 }
