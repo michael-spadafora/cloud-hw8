@@ -36,6 +36,8 @@ router.get('/hw8', async function(req, res) {
 
     // await memcached.cacheQueryResult(query, mysqlresult)
     myCache.set(query, mysqlresult)
+    console.log(mysqlresult)
+
     res.send(mysqlresult)
   }  
   else {
