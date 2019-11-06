@@ -21,11 +21,11 @@ router.get('/hw8', async function(req, res) {
 
   let query = "pos=" + pos + 'club=' + club
 
-  console.log("pre memcache query??" + query)
 
 
-  // let memcachedResult = await memcached.getQueryResult(query)
   let cacheResult = myCache.get(query)
+  console.log(cacheResult.player)
+
 
   if (!cacheResult) {
     let mysqlresult = await mysql.getInformation(club, pos)
