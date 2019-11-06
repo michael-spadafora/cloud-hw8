@@ -12,7 +12,7 @@ class MySQL {
     }
 
     async getInformation(club, pos) {
-        let connection = connection = mysql.createConnection({
+        let connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
             password : 'password',
