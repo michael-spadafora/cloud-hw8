@@ -15,7 +15,7 @@ class MySQL {
 
     async getInformation(club, pos) {
         console.log("pos: " + pos)
-        let query1 = "SELECT Player, A from assists WHERE Club='" + club + "' AND POS='" + pos + "' ORDER BY A DESC, GS DESC, PLAYER DESC"
+        let query1 = "SELECT Player, A from assists WHERE Club='" + club + "' AND POS='" + pos + "' ORDER BY A DESC, GS DESC, PLAYER ASC"
         let query2 = "SELECT AVG(A) from assists WHERE Club='" + club + "' AND POS='" + pos +"'"
 
         let query = util.promisify(this.connection.query).bind(this.connection);
