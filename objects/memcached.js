@@ -16,6 +16,7 @@ class Memcached{
 
     async getQueryResult(query) {
         let result = await this.memcached.get(query)
+        console.log(result)
         return result
     }   
 }

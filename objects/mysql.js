@@ -27,11 +27,7 @@ class MySQL {
                 max_assists: rows[0].A,
                 avg_assists: rows2[0]['AVG(A)']
                 }  
-
-              console.log(rows);
               return result
-             
-            
         })()
 
         return items
