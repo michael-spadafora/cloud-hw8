@@ -25,16 +25,20 @@ class MySQL {
         let query = util.promisify(this.connection.query).bind(this.connection);
         
         let items = await (async () => {
+            try {
               const rows = await query(query1);
               const rows2 = await query(query2);
               let result = {
                 player: rows[0].player,
                 max_assists: rows[0].A,
                 avg_assists: rows2[0].AVG(A)
-            }  
+                }  
 
               console.log(rows2);
               return result
+            } finally {
+                conn.end();
+            }
             
         })()
 
