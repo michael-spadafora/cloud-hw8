@@ -1,32 +1,41 @@
-var express    = require("express");
-var Memcached = require('memcached');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
 var app = express();
-var port = Number(process.env.PORT || 5000);
- 
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-var memcached = new Memcached();
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-memcached.connect( 'localhost:11211', function( err, conn ){
-    if( err ) {
-       console.log( conn.server );
-    }
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
 });
 
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-var profile = {'name':'Rohit kumar', 
-'location':'Delhi', 
-'emailid':'iamrohitx@gmail.com' 
-}
-// create your profile key where user personal information will be store in json format.               
-memcached.set('profile', profile, 10000, function (err) { 
-    if(err) throw new err;
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
-// get profile key data
-memcached.get('profile', function (err, data) {
-    console.log(data);
-});
-
-console.log("Listening on "+port+", Web URL: http://localhost:"+port);
-app.listen(port);
+module.exports = app;
