@@ -30,4 +30,4 @@ class MySQL {
     }
 }
 
-export default MySQL
+export default MySQL()
