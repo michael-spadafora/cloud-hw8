@@ -7,7 +7,7 @@ var port = Number(process.env.PORT || 5000);
 
 var memcached = new Memcached();
 
-memcached.connect( '127.0.0.1:11211', function( err, conn ){
+memcached.connect( 'localhost:11211', function( err, conn ){
     if( err ) {
        console.log( conn.server );
     }
