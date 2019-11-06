@@ -32,6 +32,7 @@ class MySQL {
             }
             return result
         })
+        console.log(result)
 
         return result
         
