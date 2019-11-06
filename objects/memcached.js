@@ -21,6 +21,7 @@ class Memcached{
 
     async getQueryResult(query) {
         let result = this.memcached.get(query, function(err, value) {
+            if (value)
             console.log(value.toString())
         }) 
 
